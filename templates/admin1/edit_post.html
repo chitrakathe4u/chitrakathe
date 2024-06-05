@@ -1,0 +1,47 @@
+{% extends 'admin1/base.html' %}
+
+{% block content %}
+<div class="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16 text-text-color-dark dark:text-dark-text-color-dark">
+    <h1 class="text-2xl font-bold mb-6">Edit Post: {{ post.title }}</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-4">
+            <label for="title" class="block text-sm font-medium">Title:</label>
+            <input type="text" id="title" name="title" value="{{ post.title }}" class="mt-1 p-2 border rounded w-full dark:bg-gray-600" required />
+        </div>
+        <div class="mb-4">
+            <label for="content" class="block text-sm font-medium">Content:</label>
+            <textarea id="content" name="content" class="mt-1 p-2 border rounded w-full dark:bg-gray-600" required>{{ post.content }}</textarea>
+        </div>
+        <div class="mb-4">
+            <label for="author" class="block text-sm font-medium">Author:</label>
+            <select id="author" name="author" class="mt-1 p-2 border rounded w-full dark:bg-gray-600" required>
+                <option value="">Select</option>
+                {% for author in authors %}
+                <option value="{{ author.pk }}" {% if post.author.pk == author.pk %}selected{% endif %}>{{ author.first_name }} {{ author.last_name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-4">
+            <label for="category" class="block text-sm font-medium">Category:</label>
+            <select id="category" name="category" class="mt-1 p-2 border rounded w-full dark:bg-gray-600" required>
+                <option value="">Select</option>
+                {% for category in categories %}
+                <option value="{{ category.pk }}" {% if post.category.pk == category.pk %}selected{% endif %}>{{ category.type }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-4">
+            <label for="images" class="block text-sm font-medium">Images:</label>
+            <input type="file" id="images" name="images" multiple class="mt-1 p-2 border rounded w-full dark:bg-gray-600" />
+            <!-- Display existing images -->
+            <div class="mt-2">
+                {% for image in post.images.all %}
+                <img src="{{ image.image.url }}" alt="Image for {{ post.title }}" class="w-24 h-24 object-cover inline-block mr-2">
+                {% endfor %}
+            </div>
+        </div>
+        <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded">Save Changes</button>
+    </form>
+</div>
+{% endblock %}

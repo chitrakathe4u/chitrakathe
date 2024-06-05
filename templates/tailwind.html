@@ -1,0 +1,32 @@
+{% load static %}
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  @font-face {
+    font-family: "American-text";
+    src: url('{% static "font/american-text.regular.ttf" %}') format("truetype"); /* Add more formats if needed */
+    font-weight: normal;
+    font-style: normal;
+  }
+</style>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          "dark-body-color": "#010409",
+          "primary-color": "#367BF0",
+          "dark-white-color": "#16171d",
+          "dark-text-color": "#eeeeec",
+          "dark-text-color-dark": "white",
+          "body-color": "#f9f9f9",
+          "text-color": "#636363",
+          "text-color-dark": "#242738",
+          "white-color": "#ffffff",
+        },
+        fontFamily: {
+          custom: ["American-text", "sans"],
+        },
+      },
+    },
+  };
+</script>

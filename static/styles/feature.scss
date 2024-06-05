@@ -1,0 +1,48 @@
+$primary: #5863f8;
+
+.feature-box {
+  transition: background-color 0.3s;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-radius: 0.25rem;
+    border: 2px solid transparent;
+  }
+
+  &::before {
+    left: -2px;
+    top: -2px;
+  }
+
+  &::after {
+    right: -2px;
+    bottom: -2px;
+  }
+
+  &:hover {
+    background-color: rgba($primary, 0.1);
+
+    &::before,
+    &::after {
+      width: calc(100% + 4px);
+      height: calc(100% + 4px);
+    }
+
+    &::before {
+      transition: width 0.2s linear, height 0.2s linear 0.2s;
+      border-top-color: $primary;
+      border-right-color: $primary;
+    }
+
+    &::after {
+      transition: width 0.2s linear 0.4s, height 0.2s linear 0.6s;
+      border-bottom-color: $primary;
+      border-left-color: $primary;
+    }
+  }
+}

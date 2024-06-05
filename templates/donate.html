@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Donate for chitrakathe4u {% endblock %}
+{% block content %}
+{% load static %}
+<main class="py-12 px-4 sm:px-8 lg:px-12">
+    <div class="max-w-screen-xl mx-auto">
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-8">Support Our Work</h1>
+        <div class="flex flex-col items-center space-y-8">
+            <p class="text-lg sm:text-xl text-gray-700 leading-relaxed text-center max-w-2xl">
+                Your generous donations help us continue our mission of bringing powerful visual stories to the world.
+                Your support enables us to cover important events, tell compelling stories, and highlight the beauty and
+                challenges of our times through photojournalism.
+            </p>
+            <img class="w-48 h-auto rounded-lg shadow-lg" src="{% static 'images/QR.png' %}" alt="Donate QR Code">
+            <p class="text-lg sm:text-xl text-gray-700 leading-relaxed text-center max-w-2xl">
+                Scan the QR code above to make a donation. We appreciate your support!
+            </p>
+        </div>
+    </div>
+</main>
+{% endblock %}

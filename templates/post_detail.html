@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}{{obj.title}}{% endblock %}
+{% block content %}
+<div class="max-w-screen-xl mx-auto p-5 sm:p-8 md:p-12 relative">
+    <div class="w-full h-64 sm:h-96 overflow-hidden rounded-lg shadow-lg">
+        <img class="w-full h-full object-cover" src="{{obj.images.first.image.url}}" alt="{{obj.title}}">
+    </div>
+    <div class="max-w-2xl mx-auto mt-5">
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div class="p-5">
+                <a href="#"
+                    class="text-xs text-indigo-600 uppercase font-medium hover:text-gray-900 transition duration-500 ease-in-out">
+                    {{obj.category.type}}
+                </a>
+                <h1 class="text-gray-900 font-bold text-3xl mb-2 mt-3">{{obj.title}}</h1>
+                <div class="flex items-center">
+
+                    <a href="#"><img class="w-10 h-10 rounded-full mr-4" src="{{ obj.author.profile_image.url }}"
+                            alt="Avatar of {{ obj.author.first_name }}" /></a>
+                    <div class="text-sm">
+                        <a href="{% url 'team_profile' obj.author.id %}"
+                            class="text-gray-900 font-semibold leading-none hover:text-indigo-600">
+                            {{ obj.author.first_name }} {{ obj.author.last_name }}</a>
+                        <p class="text-gray-600">{{ obj.publication_date }}</p>
+                    </div>
+                </div>
+                <p class="text-base leading-8 my-5 text-gray-800">
+                    {{obj.content}}
+                </p>
+            
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

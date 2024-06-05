@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}About us{% endblock %}
+{% block content %}
+<main class="py-12 px-4 sm:px-8 lg:px-12">
+    <div class="max-w-screen-xl mx-auto">
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-8">About Us</h1>
+        <div class="flex flex-col lg:flex-row items-center lg:items-start lg:justify-between gap-8">
+            <img class="w-full lg:w-1/2 h-auto rounded-lg shadow-lg" src="{% static 'images/photojournalism.jpg' %}"
+                alt="Photojournalism">
+            <div class="w-full lg:w-1/2 space-y-6">
+                <p class="text-lg sm:text-xl text-gray-700 leading-relaxed">
+                    Photojournalism is a powerful form of visual storytelling that captures and conveys the essence of a
+                    moment through images. It plays a crucial role in documenting events, emotions, and stories that
+                    might otherwise go unnoticed.
+                </p>
+                <p class="text-lg sm:text-xl text-gray-700 leading-relaxed">
+                    This website is a labor of love, developed by individuals who are passionate about photography and
+                    its potential to impact and inform. Our team consists of seasoned photographers and enthusiastic
+                    newcomers, all united by a shared commitment to the craft of photojournalism.
+                </p>
+                <p class="text-lg sm:text-xl text-gray-700 leading-relaxed">
+                    Our mission is to bring you the most compelling visual narratives from around the world,
+                    highlighting both the beauty and the challenges of our times. Through our work, we aim to inspire,
+                    educate, and engage our audience, fostering a deeper understanding and appreciation of the world we
+                    live in.
+                </p>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

@@ -1,0 +1,91 @@
+<!-- templates/add_post.html -->
+
+{% extends 'admin1/base.html' %}
+
+
+
+{% block content %}
+<div
+class="m-2 w-100 h-screen sm:m-16 sm:ml-72 text-text-color-dark dark:text-dark-text-color-dark"
+>
+<div class="pt-24 p-6">
+  <h1 class="text-2xl font-semibold mb-4 text-center">Create Post</h1>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="mb-4">
+      <label for="title" class="block text-sm font-medium"
+        >Title:</label
+      >
+      <input
+        type="text"
+        id="title"
+        name="title"
+        class="mt-1 p-2 border rounded w-full dark:bg-gray-600"
+        required
+      />
+    </div>
+    <div class="mb-4">
+        <label for="content" class="block text-sm font-medium">Content:</label>
+        <textarea id="content"
+        name="content"
+        class="mt-1 p-2 border rounded h-48 w-full dark:bg-gray-600"
+        required></textarea>
+          
+       
+      </div>
+    <div class="mb-4">
+      <label for="staff_type" class="block text-sm font-medium"
+        >Author:</label
+      >
+      <select
+        type="text"
+        id="author"
+        required
+        name="author"
+        class="mt-1 p-2 border rounded w-full dark:bg-gray-600"
+      >
+        <option value="">select</option>
+        {% for author in authors %}
+        <option value="{{author.pk}}">{{author.first_name}} {{author.last_name}}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="mb-4">
+      <label for="category" class="block text-sm font-medium"
+        >category:</label
+      >
+      <select
+        type="text"
+        required
+        id="category"
+        name="category"
+        class="mt-1 p-2 border rounded w-full dark:bg-gray-600"
+      >
+        <option>select</option>
+        {% for category in categories %}
+        <option value="{{category.pk}}">{{category.type}}</option>
+        {% endfor %}
+      </select>
+    </div>
+   
+    
+    <div class="mb-4">
+      <label for="profile_image" class="block text-sm font-medium"
+        >Image:</label
+      >
+      <input
+        type="file"
+        id="image"
+        name="image"
+        class="mt-1 p-2 border rounded w-full dark:bg-gray-600"
+      />
+    </div>
+    <button
+      type="submit"
+      class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 w-full"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+{% endblock %}
