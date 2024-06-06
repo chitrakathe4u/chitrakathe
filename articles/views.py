@@ -232,7 +232,9 @@ def edit_member(request, member_id):
     authenticated = request.session.get('authenticated', False)
     if authenticated:
         if request.user.is_staff:
+            print("member_id", member_id)
             member = get_object_or_404(Members, id=member_id)
+            print(member.email)
             if request.method == "POST":
                 member.first_name = request.POST.get('first_name')
                 member.last_name = request.POST.get('last_name')
@@ -244,7 +246,9 @@ def edit_member(request, member_id):
                 member.instagram_link = request.POST.get('instagram_link')
                 member.twitter_link = request.POST.get('twitter_link')
                 member.linkedin_link = request.POST.get('linkedin_link')
-                role = get_object_or_404(Role, pk=role)
+                role_inp = request.POST.get('role')
+                role = get_object_or_404(Role, id=role_inp)
+                
                 if role:
                     member.role = role
                 if 'profile_image' in request.FILES:
@@ -261,7 +265,7 @@ def logout_view(request):
     return redirect('index')
 
 def team(request):
-    members = Members.objects.all()
+    members = Members.objects.all().order_by('first_name')
     category = Category.objects.all().order_by('-id')
 
     return render(request, 'team.html', {'members':members, 'category':category, 'year':datetime.now().year})
