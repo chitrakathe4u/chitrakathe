@@ -13,7 +13,7 @@
 <body>
     <header class='shadow-md bg-white font-[sans-serif] tracking-wide relative z-50'>
 
-         <section
+        <section
             class="flex items-center justify-center flex-wrap lg:justify-center gap-4 py-3 sm:px-10 px-4 border-gray-200 border-b min-h-[75px]">
             <img class="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl h-auto"
                 src="{% static 'images/cover.jpg' %}" alt="">
@@ -75,8 +75,8 @@
                             class='hover:text-[#007bff] text-gray-600 font-semibold text-[15px] block'>About</a></li>
                     <li class='max-lg:border-b max-lg:px-3 max-lg:py-3'><a href="{% url 'donate' %}"
                             class='hover:text-[#007bff] text-gray-600 font-semibold text-[15px] block'>Donate</a></li>
-                              <li class='max-lg:border-b max-lg:px-3 max-lg:py-3'>
-                                  <a href="{% url 'submit_article' %}"
+                    <li class='max-lg:border-b max-lg:px-3 max-lg:py-3'>
+                        <a href="{% url 'submit_article' %}"
                             class='hover:text-[#007bff] text-gray-600 font-semibold text-[15px] block'>Submit-Article</a>
                     </li>
 
@@ -112,9 +112,9 @@
                 <div
                     class="border border-gray-400 bg-white rounded-lg flex flex-col justify-between leading-normal shadow-md">
                     {% if item.images.exists %}
-        <a href="{% url 'post_detail' item.slug %}">
-                    <img src="{{ item.images.first.image.url }}" class="w-full mb-3 rounded-t-lg"
-                                                                 alt="{{ item.title }}"> </a>
+                    <a href="{% url 'post_detail' item.slug %}">
+                        <img src="{{ item.images.first.image.url }}" class="w-full mb-3 rounded-t-lg"
+                            alt="{{ item.title }}"> </a>
                     {% endif %}
 
                     <div class="p-4 pt-2">
@@ -213,7 +213,8 @@
                 </a>
 
             </div>
-            <p class="text-center text-white font-medium">&copy; {{year}} chitrakathe4u. All rights reservered.</p>
+            <p class="text-center text-white font-medium">&copy; {{year}} <a href="{% url 'index' %}">chitrakathe</a>.
+                All rights reservered.</p>
         </div>
     </footer>
 
