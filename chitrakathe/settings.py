@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 import os
 # Import dj-database-url at the beginning of the file.
-
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -78,10 +78,9 @@ WSGI_APPLICATION = 'chitrakathe.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+         default='postgres://chitrakathe:0itoyDwhTGGMWUPRcpt4Kp6eE7A3w9ye@dpg-cphu5t6ct0pc73fjeucg-a.oregon-postgres.render.com/chitrakathedb',        conn_max_age=600
+     )      
 }
 
 
