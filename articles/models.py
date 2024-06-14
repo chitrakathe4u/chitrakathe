@@ -11,10 +11,10 @@ class Role(models.Model):
         return self.type
 
 class Members(models.Model):
-    first_name = models.CharField(max_length=40)
-    last_name = models.CharField(max_length=40)
+    first_name = models.TextField()
+    last_name = models.TextField()
     email = models.EmailField()
-    phone = models.CharField(max_length=10)
+    phone = models.TextField()
     role = models.ForeignKey(Role, on_delete=models.CASCADE, default=3)
     profession = models.TextField(blank=True)
     address = models.TextField(blank=True)
